@@ -1,0 +1,28 @@
+
+[
+    {
+        "id" : "1",
+        "categoryImageName" : "iphone.gen3",
+        "categoryName" : "Phones"
+    },
+    {
+        "id" : "2",
+        "categoryImageName" : "desktopcomputer",
+        "categoryName" : "Computers"
+    },
+    {
+        "id" : "3",
+        "categoryImageName" : "bolt.heart",
+        "categoryName" : "Health"
+    },
+    {
+        "id" : "4",
+        "categoryImageName" : "books.vertical",
+        "categoryName" : "Books"
+    },
+    {
+        "id" : "5",
+        "categoryImageName" : "camera",
+        "categoryName" : "Camera"
+    }
+]
