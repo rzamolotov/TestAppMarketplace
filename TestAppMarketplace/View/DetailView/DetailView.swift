@@ -24,7 +24,7 @@ struct DetailView: View {
                     .padding(.leading)
                     .padding(.trailing)
                 
-                BottomPartDetailView(detail: details[0], product: products[2])
+                BottomPartDetailView(detail: details[0], product: products[2], isFavorite: false)
                     .frame(height: 471)
                     .background(.white)
                     .cornerRadius(30)

@@ -8,19 +8,40 @@
 import SwiftUI
 
 struct ContentView: View {
+    //MARK: - Property
+    @EnvironmentObject var shop: Shop
+    
+    //MARK: - Body
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+            if shop.showingProduct == false && shop.selectedProduct == nil {
+                VStack {
+                    ScrollView{
+                        HeaderView()
+                            .padding(.leading)
+                            .padding(.trailing)
+                        
+                        CategoryGridView()
+                            .padding(.leading)
+                            .padding(.trailing)
+                        
+                        ItemView()
+                            .padding()
+                    }
+                    BottomView(numberOfProducts: shop.products.count)
+                }
+                .background(colorBackground)
+            } else {
+                DetailView()
+            }
         }
-        .padding()
     }
 }
 
+//MARK: - Preview
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
+            .environmentObject(Shop())
     }
 }

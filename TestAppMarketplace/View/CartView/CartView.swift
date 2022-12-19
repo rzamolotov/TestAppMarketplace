@@ -9,20 +9,20 @@ import SwiftUI
 
 struct CartView: View {
     //MARK: - Property
-
+    
     @EnvironmentObject var shop: Shop
-
+    
     //MARK: - Body
     var body: some View {
         VStack {
             Spacer()
-
+            
             CartHeaderView()
-
+            
                 .padding()
-
+            
             Spacer()
-
+            
             HStack {
                 Text("My Cart")
                     .font(Font.custom("MarkPro-Bold", size: 35))
@@ -30,7 +30,7 @@ struct CartView: View {
                 Spacer()
             }
             .padding()
-
+            
             ScrollView {
                 ZStack {
                     VStack{
@@ -39,14 +39,14 @@ struct CartView: View {
                                 .cornerRadius(30)
                                 .foregroundColor(colorBlue)
                                 .frame(height: 690)
-
+                            
                             if shop.products.count > 0 {
-                                ForEach(shop.products, id: \.id) { product in
-                                    VStack {
+                                VStack {
+//                                    ForEach(shop.products, id: \.id) { product in
                                         ProductRow(product: products[2])
-                                            .padding()
-                                    }
+//                                    }
                                 }
+                                .padding()
                             } else {
                                 Spacer()
                                 Text("Your cart is empty")
@@ -57,7 +57,6 @@ struct CartView: View {
                     }
                 }
             }
-            .background(colorBackground)
         }
         .background(colorBackground)
     }

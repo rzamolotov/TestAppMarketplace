@@ -14,6 +14,7 @@ struct BottomPartDetailView: View {
     var detail: Detail
     var product: Product
     @EnvironmentObject var shop: Shop
+    @State var isFavorite: Bool
   
 
     //MARK: - Body
@@ -28,16 +29,10 @@ struct BottomPartDetailView: View {
                     
                     Spacer()
                     
-                    Button( action: { },
-                            label: { if detail.isFavorites == true {
-                                Image(systemName: "heart.square")
-                                    .foregroundColor(colorBlue)
-                                    .font(Font.system(size: 33))
-                            } else {
-                                Image(systemName: "heart.square.fill")
-                                    .foregroundColor(colorBlue)
-                                    .font(Font.system(size: 33))
-                            }
+                    Button ( action: { },
+                             label: { Image(systemName: detail.isFavorites ? "heart.square" : "heart.square.fill" )
+                            .foregroundColor(colorBlue)
+                            .font(Font.system(size: 33))
                     })
                 }
                 HStack {
@@ -123,7 +118,7 @@ struct BottomPartDetailView: View {
 //MARK: - Preview
 struct BottomPartDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        BottomPartDetailView(detail: details[0], product: products[0])
+        BottomPartDetailView(detail: details[0], product: products[0], isFavorite: false)
             .padding()
             .previewLayout(.sizeThatFits)
             .environmentObject(Shop())
