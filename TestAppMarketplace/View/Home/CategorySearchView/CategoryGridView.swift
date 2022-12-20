@@ -43,7 +43,7 @@ struct CategoryGridView: View {
                     }
                 }
             }
-            SearchItem(text: .constant(""))
+            SearchItem(text: "")
         }
         .background(colorBackground)
     }

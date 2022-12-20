@@ -9,13 +9,12 @@ import SwiftUI
 
 struct ColorSegmentedControlView : View {
     //MARK: - Property
-    @State var checkedBrown = false
-    @State var checkedBlack = false
+    @State var checkColor = true
     
     var body: some View {
-        if checkedBlack == true && checkedBrown == false {
+        if checkColor == true {
             HStack(spacing: 0) {
-                Toggle(isOn: $checkedBrown) {
+                Toggle(isOn: $checkColor) {
                     ZStack {
                         Circle()
                             .foregroundColor(brownTelephone)
@@ -27,7 +26,7 @@ struct ColorSegmentedControlView : View {
                 }.toggleStyle(.button)
                     .tint(.clear)
                 
-                Toggle(isOn: $checkedBlack) {
+                Toggle(isOn: $checkColor) {
                     ZStack {
                         Circle()
                             .foregroundColor(.black)
@@ -36,9 +35,9 @@ struct ColorSegmentedControlView : View {
                 }.toggleStyle(.button)
                     .tint(.clear)
             }
-        } else if checkedBrown == true && checkedBlack == false {
+        } else if checkColor == false {
             HStack(spacing: 0) {
-                Toggle(isOn: $checkedBrown) {
+                Toggle(isOn: $checkColor) {
                     ZStack {
                         Circle()
                             .foregroundColor(brownTelephone)
@@ -48,7 +47,7 @@ struct ColorSegmentedControlView : View {
                 }.toggleStyle(.button)
                     .tint(.clear)
                 
-                Toggle(isOn: $checkedBlack) {
+                Toggle(isOn: $checkColor) {
                     ZStack {
                         Circle()
                             .foregroundColor(.black)
@@ -60,27 +59,7 @@ struct ColorSegmentedControlView : View {
                 }.toggleStyle(.button)
                     .tint(.clear)
             }
-        } else {
-            HStack(spacing: 0) {
-                Toggle(isOn: $checkedBrown) {
-                    ZStack {
-                        Circle()
-                            .foregroundColor(brownTelephone)
-                            .frame(width: 39.23)
-                    }
-                }.toggleStyle(.button)
-                    .tint(.clear)
-                
-                Toggle(isOn: $checkedBlack) {
-                    ZStack {
-                        Circle()
-                            .foregroundColor(.black)
-                            .frame(width: 39.23)
-                    }
-                }.toggleStyle(.button)
-                    .tint(.clear)
-            }
-        }
+        } 
     }
 }
 

@@ -15,26 +15,24 @@ struct ContentView: View {
     var body: some View {
         VStack {
             if shop.showingProduct == false && shop.selectedProduct == nil {
-                VStack {
-                    ScrollView{
-                        HeaderView()
-                            .padding(.leading)
-                            .padding(.trailing)
-                        
-                        CategoryGridView()
-                            .padding(.leading)
-                            .padding(.trailing)
-                        
-                        ItemView()
-                            .padding()
-                    }
-                    BottomView(numberOfProducts: shop.products.count)
+                ScrollView{
+                    HeaderView()
+                    
+                    CategoryGridView()
+                    
+                    ItemView()
                 }
-                .background(colorBackground)
+                .padding(.leading)
+                .padding(.trailing)
+                
+                BottomView(numberOfProducts: shop.products.count)
+                    .frame(height: 55)
+                
             } else {
                 DetailView()
             }
         }
+        .background(colorBackground)
     }
 }
 

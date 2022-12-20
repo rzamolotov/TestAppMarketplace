@@ -18,7 +18,7 @@ struct BottomView: View {
     var body: some View {
         ZStack {
             Rectangle()
-                .frame(width: 414, height: 72)
+                .frame(height: 72)
                 .cornerRadius(30)
                 .foregroundColor(colorBlue)
             HStack{
@@ -63,6 +63,8 @@ struct BottomView: View {
                     .frame(width: 17, height: 17)
                 Spacer()
             }
+            
+            .foregroundColor(colorBackground.opacity(0.01))
         }
     }
 }
@@ -71,8 +73,6 @@ struct BottomView: View {
 struct BottomView_Previews: PreviewProvider {
     static var previews: some View {
         BottomView(numberOfProducts: 1)
-            .padding()
-            .previewLayout(.sizeThatFits)
             .environmentObject(Shop())
     }
 }
